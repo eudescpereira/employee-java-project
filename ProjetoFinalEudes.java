@@ -4,96 +4,95 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.*;
-import java.util.stream.*;
 
 public class ProjetoFinalEudes {
 	
 	/*public static  Empregados[] listaDeFuncionários = new Empregados[ 20 ];*/
 	
-	public static List<Empregados> listaDeFuncionários = new ArrayList<Empregados>();
+	public static List<Employees> EmployeesList = new ArrayList<Employees>();
 		
-	public static List<Empregados> listaMais1000 = new ArrayList<Empregados>();
+	public static List<Employees> moreThan1000List = new ArrayList<Employees>();
 		
-	public static List<Empregados> igual1000 = new ArrayList<Empregados>();
+	public static List<Employees> sameAs1000List = new ArrayList<Employees>();
 		
-	public static List<Empregados> menor1000 = new ArrayList<Empregados>();
+	public static List<Employees> lessThan1000List = new ArrayList<Employees>();
 		
 	List<Integer> slist = Arrays.asList();  
 		 
 		
-	/*Opções de cargos*/
-	public static String getCargo(int código) {
+	/*position options*/
+	public static String getPosition(int code) {
 			
-			 switch (código) {
+			 switch (code) {
 			 case 1:
-				 return "Analista de Salários";
+				 return "Salary Analyst";
 			 case 2:
-				 return "Auxiliar de Contabilidade";
+				 return "Accounting Assistant";
 			 case 3:
-				 return "Chefe de Cobrança";
+				 return "Billing Manager";
 			 case 4:
-				 return "Chefe de Expedição";
+				 return "Expedition Manager";
 			 case 5:
-				 return "Contador";
+				 return "Accountant";
 			 case 6:
-				 return "Gerente de Divisão";
+				 return "Division Manager";
 			 case 7:
-				 return "Escriturário";
+				 return "Clerk";
 			 case 8:
-				 return "Faxineiro";
+				 return "Caretaker";
 			 case 9:
-				 return "Gerente Administrativo";
+				 return "Administrative Manager";
 			 case 10:
-				 return "Gerente Comercial";
+				 return "Commercial Manager";
 			 case 11:
-				 return "Gerente de Pessoal";
+				 return "People Manager";
 			 case 12:
-				 return "Gerente de Treinamento";
+				 return "Training Manager";
 			 case 13:
-				 return "Gerente Financeiro";
+				 return "Financial Manager";
 			 case 14:
-				 return "Contínuo";
+				 return "Ongoing";
 			 case 15:
-				 return "Operador de Computador";
+				 return "Computer Operator";
 			 case 16:
-				 return "Programador de Computador";
+				 return "Computer Programmer";
 			 case 17:
-				 return "Secretária";
+				 return "Secretary";
 			     default: 
-			    return "Informe um numero entre 1-17";
+			    return "Inform a number between 1 and 17: ";
 			 }
 	}
 		
-		/*Cadastrando usuário*/
-		public static void CadastrarEmpregado() {
+		/*registrating user*/
+		public static void registerEmployee() {
 			Scanner input = new Scanner(System.in);
 			
-			System.out.println("Informe o nome do empregado");
-			String nome = input.next();
+			System.out.println("Inform employee's name: ");
+			String name = input.next();
 			
-			System.out.println("Informe a matrícula do empregado");
-			int matrícula = input.nextInt();
-			String nomeCargo = "";
+			System.out.println("Inform employee's registration number: ");
+			int registrationNumber = input.nextInt();
+			String positionName = "";
 			while (true) {
 				System.out.println("========"+"\n");
-				System.out.println("Cargos:"+"\n");
-				System.out.println("1. Analista de Salários");
-				System.out.println("2. Auxiliar de Contabilidade");
-				System.out.println("3. Chefe de Cobrança");
-				System.out.println("4. Chefe de Expedição");
-				System.out.println("5. Contador");
-				System.out.println("6. Gerente de Divisão");
-				System.out.println("7. Escriturário");
-				System.out.println("8. Faxineiro");
-				System.out.println("9. Gerente Administrativo");
-				System.out.println("10. Gerente Comercial");
-				System.out.println("11. Gerente de Pessoal");
-				System.out.println("12. Gerente de Treinamento");
-				System.out.println("13. Gerente Financeiro");
-				System.out.println("14. Contínuo");
-				System.out.println("15. Operador de Computador");
-				System.out.println("16. Programador de Computador");
-				System.out.println("17. Secretária"+"\n");
+				System.out.println("Positions:"+"\n");
+				System.out.println("1. Salary Analyst");
+				System.out.println("2. Accounting Assistant");
+				System.out.println("3. Billing Manager");
+				System.out.println("4. Expedition Manager");
+				System.out.println("5. Accountant");
+				System.out.println("6. Division Manager");
+				System.out.println("7. Clerk");
+				System.out.println("8. Caretaker");
+				System.out.println("9. Administrative Manager");
+				System.out.println("10. Commercial Manager");
+				System.out.println("11. People Manager");
+				System.out.println("12. Training Manager");
+				System.out.println("13. Financial Manager");
+				System.out.println("14. Ongoing");
+				System.out.println("15. Computer Operator");
+				System.out.println("16. Computer Programmer");
+				System.out.println("17. Secretary"+"\n");
 				
 				System.out.println("==============================="+"\n");
 				System.out.println("Informe o cargo do empregado"+"\n");
@@ -113,7 +112,7 @@ public class ProjetoFinalEudes {
 			int salário = input.nextInt();
 			
 			Empregados funcionário = new Empregados(nome,salário,matrícula,nomeCargo);
-			listaDeFuncionários.add(funcionário);
+			EmployeesList.add(funcionário);
 			
 			/*for(Empregados empregado : listaDeFuncionários) {
 			System.out.println(empregado.getNome());
@@ -122,21 +121,21 @@ public class ProjetoFinalEudes {
 			System.out.println(empregado.getSalário());
 			System.out.println("=========================="+"\n");}*/
 			
-		for(Empregados empregado : listaDeFuncionários) {
+		for(Empregados empregado : EmployeesList) {
 			if(empregado.getSalário() > 1000) {
-				listaMais1000.add(empregado);
+				moreThan1000List.add(empregado);
 			}
 		}
 			
-		for(Empregados empregado : listaDeFuncionários) {
+		for(Empregados empregado : EmployeesList) {
 			if (empregado.getSalário() == 1000) {
-				igual1000.add(empregado);
+				sameAs1000List.add(empregado);
 			}
 		}
 			
-		for(Empregados empregado : listaDeFuncionários) {
+		for(Empregados empregado : EmployeesList) {
 			if (empregado.getSalário() < 1000) {
-				menor1000.add(empregado);
+				lessThan1000List.add(empregado);
 			}
 		}
 		
@@ -148,7 +147,7 @@ public class ProjetoFinalEudes {
 		public static void ListarEmpregado() {
 			/*List<Integer> slist = Arrays.asList();*/
 			System.out.println("Funcionários cadastrados");
-			for(Empregados empregado : listaDeFuncionários) {
+			for(Empregados empregado : EmployeesList) {
 				System.out.println("\n"+"["+"\n");
 				System.out.println(" Nome : " + empregado.getNome() + "\n" +" Matrícula: " + empregado.getMatrícula() + "\n" +" Cargo = "+ empregado.getCargo() + "\n" +" Salário: " + empregado.getSalário());
 				System.out.println("]"+"\n"); 
@@ -159,7 +158,7 @@ public class ProjetoFinalEudes {
 		
 		/*Mostrar funcionários que recebem mais que R$1000*/
 		public static void Maisque1000() {
-			for(Empregados empregado : listaDeFuncionários) {
+			for(Empregados empregado : EmployeesList) {
 				if((empregado.getSalário()  > 1000) ) {
 					System.out.println("Funcionários que recebem mais que R$1.000");
 					System.out.println("\n"+"["+"\n");
@@ -170,7 +169,7 @@ public class ProjetoFinalEudes {
 		}
 		
 		public static void iguala1000() {
-			for(Empregados empregado : listaDeFuncionários) {
+			for(Empregados empregado : EmployeesList) {
 				if(empregado.getSalário() == 1000) {
 					System.out.println("Funcionários que recebem R$1.000");
 					System.out.println("\n"+"["+"\n");
@@ -182,7 +181,7 @@ public class ProjetoFinalEudes {
 
 		public static void MenorQue1000() {
 			System.out.println("Funcionários que recebem menos que R$1.000");
-			for(Empregados empregado : listaDeFuncionários) {
+			for(Empregados empregado : EmployeesList) {
 				if(empregado.getSalário() <= 999) { 
 					System.out.println("\n"+"["+"\n");
 					System.out.println(" Nome : " + empregado.getNome() + "\n" +" Matrícula: " + empregado.getMatrícula() + "\n" +" Cargo = "+ empregado.getCargo() + "\n" +" Salário: " + empregado.getSalário());
@@ -205,7 +204,7 @@ public class ProjetoFinalEudes {
 			case "1" :
 			System.out.println("Informe o nome do funcionário");
 			String nomePesquisa = input.next();
-			for(Empregados empregado : listaDeFuncionários) {
+			for(Empregados empregado : EmployeesList) {
 				if(empregado.getNome().equalsIgnoreCase(nomePesquisa)) {
 					System.out.println("\n"+"["+"\n");
 					System.out.println(" Nome : " + empregado.getNome() + "\n" +" Matrícula: " + empregado.getMatrícula() + "\n" +" Cargo = "+ empregado.getCargo() + "\n" +" Salário: " + empregado.getSalário());
@@ -219,7 +218,7 @@ public class ProjetoFinalEudes {
 			case "2" :
 			System.out.println("Informe o numero de matrícula do funcionario: ");
 			int matriPesquisa = input.nextInt();
-			for(Empregados empregado : listaDeFuncionários) {
+			for(Empregados empregado : EmployeesList) {
 				if(empregado.getMatrícula() == matriPesquisa) {
 					System.out.println("\n"+"["+"\n");
 					System.out.println(" Nome : " + empregado.getNome() + "\n" +" Matrícula: " + empregado.getMatrícula() + "\n" +" Cargo = "+ empregado.getCargo() + "\n" +" Salário: " + empregado.getSalário());
@@ -260,7 +259,7 @@ public class ProjetoFinalEudes {
 					   
 				   switch (opcao) {
 					   case "1":
-						   CadastrarEmpregado();  
+						   registerEmployee();
 						   break;
 				       case "2" :
 				    	   ListarEmpregado();

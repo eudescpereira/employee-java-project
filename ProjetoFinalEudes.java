@@ -95,24 +95,24 @@ public class ProjetoFinalEudes {
 				System.out.println("17. Secretary"+"\n");
 				
 				System.out.println("==============================="+"\n");
-				System.out.println("Informe o cargo do empregado"+"\n");
+				System.out.println("Inform employee's position:"+"\n");
 				System.out.println("===============================");
 				
-				int cargoCódigo = input.nextInt();
+				int positionCode = input.nextInt();
 				
-				if (cargoCódigo <= 17) {
-					 nomeCargo =	getCargo(cargoCódigo);
-					System.out.println(nomeCargo+"\n");
+				if (positionCode <= 17) {
+					 positionName =	getPosition(positionCode);
+					System.out.println(positionName+"\n");
 					break;
 				}
 				
 			}
 			
-			System.out.println("Informe o Salário do empregado");
-			int salário = input.nextInt();
+			System.out.println("Inform employee's salary: ");
+			int salary = input.nextInt();
 			
-			Empregados funcionário = new Empregados(nome,salário,matrícula,nomeCargo);
-			EmployeesList.add(funcionário);
+			Employees employee = new Employees(name,salary,positionName,registrationNumber);
+			EmployeesList.add(employee);
 			
 			/*for(Empregados empregado : listaDeFuncionários) {
 			System.out.println(empregado.getNome());
@@ -121,35 +121,35 @@ public class ProjetoFinalEudes {
 			System.out.println(empregado.getSalário());
 			System.out.println("=========================="+"\n");}*/
 			
-		for(Empregados empregado : EmployeesList) {
-			if(empregado.getSalário() > 1000) {
-				moreThan1000List.add(empregado);
+		for(Employees worker : EmployeesList) {
+			if(worker.getSalary() > 1000) {
+				moreThan1000List.add(worker);
 			}
 		}
 			
-		for(Empregados empregado : EmployeesList) {
-			if (empregado.getSalário() == 1000) {
-				sameAs1000List.add(empregado);
+		for(Employees worker : EmployeesList) {
+			if (worker.getSalary() == 1000) {
+				sameAs1000List.add(worker);
 			}
 		}
 			
-		for(Empregados empregado : EmployeesList) {
-			if (empregado.getSalário() < 1000) {
-				lessThan1000List.add(empregado);
+		for(Employees worker : EmployeesList) {
+			if (worker.getSalary() < 1000) {
+				lessThan1000List.add(worker);
 			}
 		}
 		
 			System.out.println("\n"+"==========================");
-			System.out.println("= Funcionário Cadastrado =");
+			System.out.println("= Employee Registered. =");
 			System.out.println("=========================="+"\n");
 		}
 		
-		public static void ListarEmpregado() {
+		public static void ListEmployee() {
 			/*List<Integer> slist = Arrays.asList();*/
-			System.out.println("Funcionários cadastrados");
-			for(Empregados empregado : EmployeesList) {
+			System.out.println("Registered employees: ");
+			for(Employees worker : EmployeesList) {
 				System.out.println("\n"+"["+"\n");
-				System.out.println(" Nome : " + empregado.getNome() + "\n" +" Matrícula: " + empregado.getMatrícula() + "\n" +" Cargo = "+ empregado.getCargo() + "\n" +" Salário: " + empregado.getSalário());
+				System.out.println(" Name: " + worker.getName() + "\n" +" Registration Number: " + worker.getRegistrationNumber() + "\n" +" Position: "+ worker.getPosition() + "\n" +" Salary: " + worker.getSalary());
 				System.out.println("]"+"\n"); 
 			}
 		}
@@ -157,81 +157,81 @@ public class ProjetoFinalEudes {
 		
 		
 		/*Mostrar funcionários que recebem mais que R$1000*/
-		public static void Maisque1000() {
-			for(Empregados empregado : EmployeesList) {
-				if((empregado.getSalário()  > 1000) ) {
-					System.out.println("Funcionários que recebem mais que R$1.000");
+		public static void moreThan1000() {
+			for(Employees worker : EmployeesList) {
+				if((worker.getSalary()  > 1000) ) {
+					System.out.println("Employees who earn more than R$1,000: ");
 					System.out.println("\n"+"["+"\n");
-					System.out.println(" Nome : " + empregado.getNome() + "\n" +" Matrícula: " + empregado.getMatrícula() + "\n" +" Cargo = "+ empregado.getCargo() + "\n" +" Salário: " + empregado.getSalário());
+					System.out.println(" Name: " + worker.getName() + "\n" +" Registration Number: " + worker.getRegistrationNumber() + "\n" +" Position: "+ worker.getPosition() + "\n" +" Salary: " + worker.getSalary());
 					System.out.println("]"+"\n");
 				}
 			}
 		}
 		
-		public static void iguala1000() {
-			for(Empregados empregado : EmployeesList) {
-				if(empregado.getSalário() == 1000) {
-					System.out.println("Funcionários que recebem R$1.000");
+		public static void sameAs1000() {
+			for(Employees worker : EmployeesList) {
+				if(worker.getSalary() == 1000) {
+					System.out.println("Employees who earn R$1,000: ");
 					System.out.println("\n"+"["+"\n");
-					System.out.println(" Nome : " + empregado.getNome() + "\n" +" Matrícula: " + empregado.getMatrícula() + "\n" +" Cargo = "+ empregado.getCargo() + "\n" +" Salário: " + empregado.getSalário());
+					System.out.println(" Name: " + worker.getName() + "\n" +" Registration Number: " + worker.getRegistrationNumber() + "\n" +" Position: "+ worker.getPosition() + "\n" +" Salary: " + worker.getSalary());
 					System.out.println("]"+"\n");
 				}
 			}
 		}
 
-		public static void MenorQue1000() {
-			System.out.println("Funcionários que recebem menos que R$1.000");
-			for(Empregados empregado : EmployeesList) {
-				if(empregado.getSalário() <= 999) { 
+		public static void lessThan1000() {
+			System.out.println("Employees who earn less than R$1,000: ");
+			for(Employees worker : EmployeesList) {
+				if(worker.getSalary() <= 999) {
 					System.out.println("\n"+"["+"\n");
-					System.out.println(" Nome : " + empregado.getNome() + "\n" +" Matrícula: " + empregado.getMatrícula() + "\n" +" Cargo = "+ empregado.getCargo() + "\n" +" Salário: " + empregado.getSalário());
+					System.out.println(" Name: " + worker.getName() + "\n" +" Registration Number: " + worker.getRegistrationNumber() + "\n" +" Position: "+ worker.getPosition() + "\n" +" Salary: " + worker.getSalary());
 					System.out.println("]"+"\n");
 			}
 		}
 	}
 
-		public static void PesquisarEmpregado() {
+		public static void SearchEmployee() {
 			Scanner input = new Scanner(System.in);
 			System.out.println("===================================================================");
-			System.out.println("Pesquisar funcionário através de seu nome digite 1.");
-			System.out.println("Pesquisar funcionário através de seu número de matrícula digite 2.");
+			System.out.println("To search employee by name, press 1.");
+			System.out.println("To search employee by registration number, press 2.");
 			System.out.println("===================================================================");
 		
-			String pesquisar = input.next();
+			String search = input.next();
 		
-			switch (pesquisar) {
+			switch (search) {
 			
 			case "1" :
-			System.out.println("Informe o nome do funcionário");
-			String nomePesquisa = input.next();
-			for(Empregados empregado : EmployeesList) {
-				if(empregado.getNome().equalsIgnoreCase(nomePesquisa)) {
+			System.out.println("Inform employee's name: ");
+			String nameSearched = input.next();
+			for(Employees worker : EmployeesList) {
+				if(worker.getName().equalsIgnoreCase(nameSearched)) {
 					System.out.println("\n"+"["+"\n");
-					System.out.println(" Nome : " + empregado.getNome() + "\n" +" Matrícula: " + empregado.getMatrícula() + "\n" +" Cargo = "+ empregado.getCargo() + "\n" +" Salário: " + empregado.getSalário());
+					System.out.println(" Name : " + worker.getName() + "\n" +" Registration Number: " + worker.getRegistrationNumber() + "\n" +" Position: "+ worker.getPosition() + "\n" +" Salary: " + worker.getSalary());
 					System.out.println("]"+"\n");
 				} else {
-					System.out.println("Não existem funcionários com esse nome. ");
+					System.out.println("No employee with name: " + nameSearched + " found. ");
 				}
 			}
 			break;
 			
 			case "2" :
-			System.out.println("Informe o numero de matrícula do funcionario: ");
-			int matriPesquisa = input.nextInt();
-			for(Empregados empregado : EmployeesList) {
-				if(empregado.getMatrícula() == matriPesquisa) {
+			System.out.println("Inform employee's registration number: ");
+			int rnSearched = input.nextInt();
+			for(Employees worker : EmployeesList) {
+				if(worker.getRegistrationNumber() == rnSearched) {
 					System.out.println("\n"+"["+"\n");
-					System.out.println(" Nome : " + empregado.getNome() + "\n" +" Matrícula: " + empregado.getMatrícula() + "\n" +" Cargo = "+ empregado.getCargo() + "\n" +" Salário: " + empregado.getSalário());
+					System.out.println(" Name : " + worker.getName() + "\n" +" Registration Number: " + worker.getRegistrationNumber() + "\n" +" Position: "+ worker.getPosition() + "\n" +" Salary: " + worker.getSalary());
 					System.out.println("]"+"\n");
 				} else {
-					System.out.println("Não existem funcionários com esse número de matrícula.");
+					System.out.println("No employee with registration number: " + rnSearched + " found.");
 				}
 			}
 			break;
 		
 			default :
-			System.out.println("Digite 1 ou 2 para pesquisar o funcionário.");
-			PesquisarEmpregado();
+			System.out.println("Press 1 or 2 to search for employee: ");
+			searchEmployee();
 		}
 	}
 		
